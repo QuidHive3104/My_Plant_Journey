@@ -13,6 +13,6 @@ Team Members:
 - Email: sarveswari0312@gmail.com
 - Contact Dasneem Banu: via GitHub @DasneemBanu
 
-Course: Application Development
+## Course: Application Development
 
 Team motto: Work smart and innovate!
