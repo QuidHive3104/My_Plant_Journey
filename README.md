@@ -15,4 +15,4 @@ Team Members:
 
 Course: Application Development
 
-Team Motto: Code Hard, Dream Big!
+Team motto: Work smart and innovate!
