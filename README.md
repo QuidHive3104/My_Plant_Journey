@@ -1,17 +1,16 @@
 # Team-Proj
 -QuidHive3104
+
 Team Members:
- Yaaswiny Abbiramavally Thinaharan
- Dasneem Banu Binti Haja
- Nureen Fatini Binti Zulkefli
-Sarveswari A/P Vasuthevan
- 
-
-
+- Yaaswiny Abbiramavally Thinaharan
+- Dasneem Banu Binti Haja
+- Nureen Fatini Binti Zulkefli
+- Sarveswari A/P Vasuthevan
 
 ## Contact
+- Email: ythinaharan@gmail.com
+- Phone Number: 012-9022588
 - Email: sarveswari0312@gmail.com
-Dasneem Banu: via GitHub @DasneemBanu
+- Contact Dasneem Banu: via GitHub @DasneemBanu
 
 Course: Application Development
- 
