@@ -14,3 +14,5 @@ Team Members:
 - Contact Dasneem Banu: via GitHub @DasneemBanu
 
 Course: Application Development
+
+Team Motto: Code Hard, Dream Big!
