@@ -9,6 +9,9 @@ Sarveswari A/P Vasuthevan
 
 
 
+## Contact
+- Email: sarveswari0312@gmail.com
+Dasneem Banu: via GitHub @DasneemBanu
 
-Contact Dasneem Banu: via GitHub @DasneemBanu
 Course: Application Development
+ 
