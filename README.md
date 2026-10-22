@@ -22,5 +22,5 @@ Team Members:
 
 ## Course: Application Development
 
-Team motto: Code, Collaborate, Conquer!
-Team motto (Dasneem & Fatini): Innovation drives us forward.
+Team motto: Work smart and innovate!
+Team motto: Learn fast, move faster.
