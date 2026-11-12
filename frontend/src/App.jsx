@@ -3,6 +3,7 @@ import SplashScreen from './pages/SplashScreen';
 import Login from './pages/Login';
 import SignUp from './pages/SignUp';
 import UserLevel from './pages/UserLevel';
+import EGarden from './pages/EGarden';
 
 function App() {
   return (
@@ -19,6 +20,8 @@ function App() {
         
         {/* The User Level page stays here */}
         <Route path="/user-level" element={<UserLevel />} />
+
+        <Route path="/e-garden" element={<EGarden />} />
       </Routes>
     </BrowserRouter>
   );
