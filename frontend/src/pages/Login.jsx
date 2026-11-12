@@ -80,7 +80,7 @@ export default function Login() {
 
         {/* Footer Link */}
         <p className="text-center mt-8 text-[#0d3b2e] text-sm">
-          Don't have an account? <Link to="/register" className="text-[#22c55e] font-bold hover:underline">Sign Up</Link>
+          Don't have an account? <Link to="/signup" className="text-[#22c55e] font-bold hover:underline">Sign Up</Link>
         </p>
 
       </div>

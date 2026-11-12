@@ -1,6 +1,7 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import SplashScreen from './pages/SplashScreen';
 import Login from './pages/Login';
+import SignUp from './pages/SignUp';
 import UserLevel from './pages/UserLevel';
 
 function App() {
@@ -12,6 +13,9 @@ function App() {
         
         {/* The Login page is now at /login */}
         <Route path="/login" element={<Login />} />
+        
+        {/* The Sign Up page is now at /signup */}
+        <Route path="/signup" element={<SignUp />} />
         
         {/* The User Level page stays here */}
         <Route path="/user-level" element={<UserLevel />} />
