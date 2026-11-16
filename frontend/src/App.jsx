@@ -2,7 +2,8 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import SplashScreen from './pages/SplashScreen';
 import Login from './pages/Login';
 import SignUp from './pages/SignUp';
-import UserLevel from './pages/UserLevel';
+import UserLevel from './pages/UserLevel';import DrPlant from "./pages/DrPlant";
+
 
 function App() {
   return (
@@ -19,6 +20,8 @@ function App() {
         
         {/* The User Level page stays here */}
         <Route path="/user-level" element={<UserLevel />} />
+
+        <Route path="/dr-plant" element={<DrPlant />} />  
       </Routes>
     </BrowserRouter>
   );
