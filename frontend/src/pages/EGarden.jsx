@@ -1,33 +1,19 @@
 
+import { useNavigate } from 'react-router-dom';
+import { plants } from '../data/plants';
 import './EGarden.css';
 
-import bonsai from '../assets/plants/bonsai.jpg';
-import chili from '../assets/plants/chili.jpg';
-import peaceLily from '../assets/plants/peacelily.jpg';
-import snakePlant from '../assets/plants/snakeplant.jpg';
-import spiderPlant from '../assets/plants/spiderplant.jpg';
-import zzPlant from '../assets/plants/zzplant.jpg';
-
-const plants = [
-  { id: 1, name: 'Chili', image: chili, health: 'Healthy' },
-  { id: 2, name: 'Bonsai', image: bonsai, health: 'Healthy' },
-  { id: 3, name: 'Snake Plant', image: snakePlant, health: 'Healthy' },
-  { id: 4, name: 'Spider Plant', image: spiderPlant, health: 'Needs Care' },
-  { id: 5, name: 'Peace Lily', image: peaceLily, health: 'Healthy' },
-  { id: 6, name: 'ZZ Plant', image: zzPlant, health: 'Healthy' },
-];
-
 export default function EGarden() {
+  const navigate = useNavigate();
+
   return (
     <div className="egarden-page">
-
       <main className="egarden-container">
 
-        {/* Page heading */}
         <header className="egarden-header">
           <div>
             <h1>My E-Garden</h1>
-            <p>The roots know what the mind forgets.</p>
+            <p>“The roots know what we buried long before the flowers bloom.”</p>
           </div>
 
           <button className="garden-menu" aria-label="Garden menu">
@@ -35,14 +21,21 @@ export default function EGarden() {
           </button>
         </header>
 
-        {/* Plant collection */}
         <section className="egarden-content">
-
           <div className="plant-grid">
-
             {plants.map((plant) => (
-              <article className="plant-card" key={plant.id}>
-
+              <article
+                className="plant-card"
+                key={plant.id}
+                onClick={() => navigate(`/e-garden/${plant.id}`)}
+                role="button"
+                tabIndex={0}
+                onKeyDown={(event) => {
+                  if (event.key === 'Enter') {
+                    navigate(`/e-garden/${plant.id}`);
+                  }
+                }}
+              >
                 <img
                   src={plant.image}
                   alt={plant.name}
@@ -58,22 +51,16 @@ export default function EGarden() {
                 >
                   {plant.health}
                 </span>
-
               </article>
             ))}
-
           </div>
 
-          {/* Add New Plant button */}
           <button className="add-plant-button">
             + Add New Plant
           </button>
-
         </section>
-
       </main>
 
-      {/* Bottom navigation */}
       <nav className="bottom-navigation">
         <button aria-label="Home">⌂</button>
         <button aria-label="Search">⌕</button>
@@ -81,7 +68,6 @@ export default function EGarden() {
         <button aria-label="Care Log">◷</button>
         <button aria-label="Profile">♙</button>
       </nav>
-
     </div>
   );
 }

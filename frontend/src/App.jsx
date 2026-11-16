@@ -4,6 +4,7 @@ import Login from './pages/Login';
 import SignUp from './pages/SignUp';
 import UserLevel from './pages/UserLevel';
 import EGarden from './pages/EGarden';
+import GardenPlantDetails from './pages/GardenPlantDetails';
 
 function App() {
   return (
@@ -22,6 +23,8 @@ function App() {
         <Route path="/user-level" element={<UserLevel />} />
 
         <Route path="/e-garden" element={<EGarden />} />
+        <Route path="/e-garden/:plantId" element={<GardenPlantDetails />} />
+        
       </Routes>
     </BrowserRouter>
   );

@@ -185,3 +185,12 @@
     height: 115px;
   }
 }
+
+.plant-card {
+  cursor: pointer;
+}
+
+.plant-card:focus-visible {
+  outline: 3px solid #087A3B;
+  outline-offset: 3px;
+}
