@@ -25,7 +25,7 @@
 
 /* ===== PAGE HEADING ===== */
 .details-header {
-  margin-bottom: 12px;
+  margin-bottom: 18px;
 }
 
 .details-header h1 {
@@ -47,8 +47,8 @@
 /* ===== PLANT INFORMATION ===== */
 .plant-information {
   display: grid;
-  grid-template-columns: 40% 60%;
-  gap: 15px;
+  grid-template-columns: 34% minmax(0, 1fr);
+  gap: 25px;
   align-items: start;
 }
 
@@ -58,7 +58,8 @@
 
 .details-plant-image {
   display: block;
-  width: 90%;
+  width: 82%;
+  max-width: 290px;
   aspect-ratio: 1 / 1;
   object-fit: cover;
   border-radius: 15px;
@@ -73,16 +74,17 @@
 }
 
 .plant-care-section h3 {
-  font-size: 15px;
+  font-size: 16px;
   font-weight: 800;
-  margin: 4px 0;
+  margin: 5px 0;
 }
 
 .species-name {
+  font-size: 16px;
   font-weight: 700;
   border-bottom: 1px solid #376b43;
-  padding-bottom: 4px;
-  margin: 0 0 14px;
+  padding-bottom: 6px;
+  margin: 0 0 15px;
   overflow-wrap: anywhere;
 }
 
@@ -92,14 +94,14 @@
 }
 
 .plant-care-section li {
-  font-size: 14px;
-  line-height: 1.5;
-  margin-bottom: 3px;
+  font-size: 15px;
+  line-height: 1.6;
+  margin-bottom: 5px;
 }
 
 /* ===== PLANT HISTORY ===== */
 .plant-history {
-  margin-top: 35px;
+  margin-top: 40px;
 }
 
 .plant-history h2 {
@@ -152,8 +154,12 @@
   }
 
   .plant-information {
-    grid-template-columns: 40% 60%;
-    gap: 10px;
+    grid-template-columns: 40% minmax(0, 1fr);
+    gap: 12px;
+  }
+
+  .details-plant-image {
+    width: 95%;
   }
 
   .plant-care-section h3 {
@@ -162,9 +168,14 @@
 
   .plant-care-section li {
     font-size: 11px;
+    line-height: 1.5;
   }
 
   .plant-photo-section h2 {
     font-size: 21px;
+  }
+
+  .plant-history {
+    margin-top: 28px;
   }
 }
