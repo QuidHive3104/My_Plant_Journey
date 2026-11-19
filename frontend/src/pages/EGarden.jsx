@@ -54,17 +54,22 @@ export default function EGarden() {
               </article>
             ))}
           </div>
-
-          <button className="add-plant-button">
-            + Add New Plant
-          </button>
         </section>
       </main>
 
       <nav className="bottom-navigation">
         <button aria-label="Home">⌂</button>
         <button aria-label="Search">⌕</button>
-        <button className="camera-button" aria-label="Camera">◎</button>
+        <button
+          className="camera-button"
+          aria-label="Dr. Plant AI"
+          onClick={() => navigate('/dr-plant')}
+        >
+          <img
+            src="/dr-plant-ai-logo.png"
+            alt="Dr. Plant AI"
+          />
+        </button>
         <button aria-label="Care Log">◷</button>
         <button aria-label="Profile">♙</button>
       </nav>
