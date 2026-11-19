@@ -1,3 +1,4 @@
+import { supabase } from '../lib/supabaseClient';
 import { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import myBackground from '../assets/bg1.png'; 
@@ -9,19 +10,32 @@ export default function SignUp() {
   const [confirmPassword, setConfirmPassword] = useState('');
   const navigate = useNavigate();
 
-  const handleSignUp = (e) => {
-    e.preventDefault();
-    
-    // Check if passwords match
-    if (password !== confirmPassword) {
-      alert("Passwords do not match!");
-      return;
-    }
+  const handleSignUp = async (e) => {
+  e.preventDefault();
+  
+  if (password !== confirmPassword) {
+    alert("Passwords do not match!");
+    return;
+  }
 
-    // Later, you will connect this to the backend to save the user
+  // Call Supabase to create the user
+  const { data, error } = await supabase.auth.signUp({
+    email: email,
+    password: password,
+    options: {
+      data: {
+        full_name: name, // Saves the name to the user's profile
+      }
+    }
+  });
+
+  if (error) {
+    alert("Error signing up: " + error.message);
+  } else {
     alert("Account created successfully! Please log in.");
-    navigate('/login'); // Send them to the login page after signing up
-  };
+    navigate('/login');
+  }
+};
 
   return (
     <div 
