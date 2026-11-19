@@ -1,21 +1,46 @@
 import { useNavigate } from 'react-router-dom';
-import { supabase } from '../lib/supabaseClient'; // 1. IMPORT SUPABASE
+import { supabase } from '../lib/supabaseClient'; 
 import myBackground from '../assets/bg1.png'; 
 
 export default function UserLevel() {
   const navigate = useNavigate();
 
-  // 2. ADD THE LOGOUT FUNCTION
   const handleLogout = async () => {
     await supabase.auth.signOut();
     navigate('/login');
   };
 
-  const selectLevel = (level) => {
-    localStorage.setItem('userLevel', level);
-    // Later, you will change this to navigate('/garden')
-    alert(`You selected: ${level}. (Welcome To MyPlantJourneY!)`); 
+  // --- UPDATED: Save level to Database ---
+    const selectLevel = async (level) => {
+    try {
+      // 1. Get the currently logged-in user
+      const { data: { user }, error: userError } = await supabase.auth.getUser();
+      
+      if (userError || !user) {
+        throw new Error("Could not find user session.");
+      }
+
+      // 2. Save the level into the 'users' table, 'level' column
+      const { error: dbError } = await supabase
+        .from('users') // <--- Your table name
+        .upsert({ 
+          id: user.id, 
+          level: level // <--- Jian's column name
+        });
+
+      if (dbError) throw dbError;
+
+      // 3. Keep it in local storage (optional)
+      localStorage.setItem('userLevel', level);
+      
+      // 4. Send them to the Garden page!
+      navigate('/garden');
+
+    } catch (error) {
+      alert("Error saving level: " + error.message);
+    }
   };
+  // ---------------------------------------
 
   return (
     <div 
@@ -41,7 +66,6 @@ export default function UserLevel() {
           ))}
         </div>
 
-        {/* 3. ADD THE LOGOUT BUTTON */}
         <button 
           onClick={handleLogout}
           className="mt-4 text-[#0d3b2e] font-bold bg-white/50 px-8 py-2 rounded-lg hover:bg-red-500 hover:text-white transition-all duration-300 shadow-md"
