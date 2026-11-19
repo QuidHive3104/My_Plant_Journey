@@ -3,6 +3,7 @@ import SplashScreen from './pages/SplashScreen';
 import Login from './pages/Login';
 import SignUp from './pages/SignUp';
 import UserLevel from './pages/UserLevel';
+import DrPlant from "./pages/DrPlant";
 import ProtectedRoute from './components/ProtectedRoute'; 
 
 function App() {
@@ -29,6 +30,8 @@ function App() {
         />
         
         {/* Note: When you add Garden and CareLog to App.jsx later, wrap them the exact same way! */}
+
+        <Route path="/dr-plant" element={<DrPlant />} />  
       </Routes>
     </BrowserRouter>
   );
