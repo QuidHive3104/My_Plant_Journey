@@ -2,8 +2,9 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import SplashScreen from './pages/SplashScreen';
 import Login from './pages/Login';
 import SignUp from './pages/SignUp';
-import UserLevel from './pages/UserLevel';import DrPlant from "./pages/DrPlant";
-
+import UserLevel from './pages/UserLevel';
+import DrPlant from "./pages/DrPlant";
+import ProtectedRoute from './components/ProtectedRoute'; 
 
 function App() {
   return (
@@ -18,8 +19,17 @@ function App() {
         {/* The Sign Up page is now at /signup */}
         <Route path="/signup" element={<SignUp />} />
         
-        {/* The User Level page stays here */}
-        <Route path="/user-level" element={<UserLevel />} />
+        {/* 🚨 SECURED ROUTE: Wrap UserLevel in ProtectedRoute 🚨 */}
+        <Route 
+          path="/user-level" 
+          element={
+            <ProtectedRoute>
+              <UserLevel />
+            </ProtectedRoute>
+          } 
+        />
+        
+        {/* Note: When you add Garden and CareLog to App.jsx later, wrap them the exact same way! */}
 
         <Route path="/dr-plant" element={<DrPlant />} />  
       </Routes>
