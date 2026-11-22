@@ -5,7 +5,7 @@ import SignUp from './pages/SignUp';
 import UserLevel from './pages/UserLevel';
 import EGarden from './pages/EGarden';
 import GardenPlantDetails from './pages/GardenPlantDetails';
-import DrPlant from './pages/DrPlant';
+/*import DrPlant from './pages/DrPlant';*/
 
 function App() {
   return (
@@ -25,7 +25,7 @@ function App() {
 
         <Route path="/e-garden" element={<EGarden />} />
         <Route path="/e-garden/:plantId" element={<GardenPlantDetails />} />
-        <Route path="/dr-plant" element={<DrPlant />} />
+        
         
       </Routes>
     </BrowserRouter>

@@ -1,5 +1,5 @@
 
-/* Overall page background */
+/* Overall page */
 .egarden-page {
   min-height: 100vh;
   background-color: #F4F8F1;
@@ -8,97 +8,106 @@
   background-position: center;
   background-repeat: no-repeat;
   background-attachment: fixed;
-  padding: 30px 25px 100px;
+  padding: 35px 30px 125px;
   font-family: Arial, sans-serif;
   box-sizing: border-box;
 }
 
-/* Main page container */
+/* Main container */
 .egarden-container {
-  max-width: 900px;
+  width: 100%;
+  max-width: 1050px;
   margin: 0 auto;
 }
 
-/* Page heading */
+/* Header */
 .egarden-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 25px;
+  margin-bottom: 30px;
 }
 
 .egarden-header h1 {
   color: #294B35;
-  font-size: 30px;
+  font-size: 34px;
   font-weight: bold;
-  margin: 0 0 8px;
+  margin: 0 0 10px;
 }
 
 .egarden-header p {
   color: #718575;
-  font-size: 14px;
+  font-size: 16px;
   margin: 0;
+  line-height: 1.5;
 }
 
 .garden-menu {
   background: transparent;
   border: none;
   color: #294B35;
-  font-size: 25px;
+  font-size: 30px;
   cursor: pointer;
 }
 
-/* Main content area */
+/* Content */
 .egarden-content {
   width: 100%;
 }
 
-/* Plant collection grid */
+/* Plant grid */
 .plant-grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 20px 15px;
+  gap: 22px;
 }
 
-/* Individual plant card */
+/* Plant cards */
 .plant-card {
   min-width: 0;
-  padding: 10px;
+  padding: 15px;
   text-align: center;
-  background: rgba(255, 255, 255, 0.35);
-  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.48);
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  border-radius: 18px;
   transition: transform 0.2s ease;
+  cursor: pointer;
 }
 
 .plant-card:hover {
   transform: translateY(-4px);
 }
 
+.plant-card:focus-visible {
+  outline: 3px solid #087A3B;
+  outline-offset: 3px;
+}
 
+/* Plant images */
 .plant-image {
   display: block;
-  width: 75%;
+  width: 85%;
+  max-width: 220px;
   aspect-ratio: 1 / 1;
-  height: auto;
-  object-fit: contain;
-  background-color: rgba(255, 255, 255, 0.35);
-  border-radius: 12px;
+  object-fit: cover;
+  background-color: rgba(255, 255, 255, 0.4);
+  border-radius: 15px;
   margin: 0 auto;
 }
 
 /* Plant name */
 .plant-card h3 {
   color: #294B35;
-  font-size: 15px;
-  margin: 10px 0 7px;
+  font-size: 18px;
+  margin: 13px 0 10px;
 }
 
-/* Health status badge */
+/* Health badges */
 .health-badge {
   display: inline-block;
-  padding: 5px 12px;
+  padding: 7px 15px;
   border-radius: 20px;
-  font-size: 11px;
+  font-size: 13px;
   font-weight: bold;
 }
 
@@ -112,104 +121,110 @@
   background-color: #FFEABD;
 }
 
-/* Add New Plant button */
-.add-plant-button {
-  display: block;
-  width: 100%;
-  max-width: 250px;
-  margin: 30px auto 15px;
-  padding: 13px;
-  border: none;
-  border-radius: 25px;
-  background: linear-gradient(90deg, #087A3B, #16D69B);
-  color: white;
-  font-size: 14px;
-  font-weight: bold;
-  cursor: pointer;
-  transition: opacity 0.2s ease;
-}
-
-.add-plant-button:hover {
-  opacity: 0.85;
-}
-
 /* Bottom navigation */
 .bottom-navigation {
   position: fixed;
   bottom: 0;
   left: 0;
   width: 100%;
-  height: 60px;
+  min-height: 82px;
+  padding: 8px 12px;
   display: flex;
   justify-content: space-around;
   align-items: center;
-  background: rgba(18, 55, 39, 0.95);
+  background: rgba(18, 55, 39, 0.97);
+  box-sizing: border-box;
   z-index: 10;
 }
 
 .bottom-navigation button {
+  width: 48px;
+  height: 48px;
   border: none;
   background: transparent;
   color: white;
-  font-size: 23px;
+  font-size: 29px;
   cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
+/* Dr. Plant AI button */
 .bottom-navigation .camera-button {
-  width: 48px;
-  height: 48px;
+  width: 76px;
+  height: 76px;
+  flex-shrink: 0;
   border-radius: 50%;
   background: #10D98B;
-  color: #123927;
-}
-
-/* Responsive design */
-@media (max-width: 480px) {
-  .egarden-page {
-    padding: 25px 15px 90px;
-  }
-
-  .egarden-header h1 {
-    font-size: 25px;
-  }
-
-  .plant-grid {
-    gap: 14px 10px;
-  }
-
-  .plant-card {
-    padding: 7px;
-  }
-
-  .plant-image {
-    height: 115px;
-  }
-}
-
-.plant-card {
-  cursor: pointer;
-}
-
-.plant-card:focus-visible {
-  outline: 3px solid #087A3B;
-  outline-offset: 3px;
-}
-
-.camera-button {
-  width: 58px;
-  height: 58px;
-  border-radius: 50%;
-  border: none;
-  background: white;
+  border: 3px solid rgba(255, 255, 255, 0.3);
   display: flex;
-  align-items: center;
   justify-content: center;
-  cursor: pointer;
+  align-items: center;
   overflow: hidden;
+  box-shadow: 0 0 16px rgba(16, 217, 139, 0.35);
 }
 
 .camera-button img {
   width: 100%;
   height: 100%;
   object-fit: contain;
+}
+
+/* Smaller screens */
+@media (max-width: 480px) {
+  .egarden-page {
+    padding: 25px 15px 115px;
+  }
+
+  .egarden-header h1 {
+    font-size: 28px;
+  }
+
+  .egarden-header p {
+    font-size: 14px;
+  }
+
+  .plant-grid {
+    gap: 15px 12px;
+  }
+
+  .plant-card {
+    padding: 11px 8px;
+  }
+
+  .plant-image {
+    width: 90%;
+  }
+
+  .plant-card h3 {
+    font-size: 16px;
+  }
+
+  .health-badge {
+    font-size: 12px;
+    padding: 6px 12px;
+  }
+
+  .bottom-navigation {
+    min-height: 76px;
+  }
+
+  .bottom-navigation button {
+    width: 42px;
+    height: 42px;
+    font-size: 26px;
+  }
+
+  .bottom-navigation .camera-button {
+    width: 66px;
+    height: 66px;
+  }
+
+  .camera-button img {
+  width: 145%;
+  height: 145%;
+  max-width: none;
+  object-fit: contain;
+}
 }
