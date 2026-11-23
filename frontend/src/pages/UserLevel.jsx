@@ -19,9 +19,9 @@ export default function UserLevel() {
           .eq('id', user.id)
           .single();
 
-        // If a level is found, skip this page and go straight to the Garden
+        // If a level is found, skip this page and go straight to the E-Garden
         if (data && data.level) {
-          navigate('/garden');
+          navigate('/e-garden'); 
           return;
         }
       }
@@ -54,7 +54,7 @@ export default function UserLevel() {
       if (dbError) throw dbError;
 
       localStorage.setItem('userLevel', level);
-      navigate('/garden');
+      navigate('/e-garden'); // Navigate to your teammate's E-Garden page
 
     } catch (error) {
       alert("Error saving level: " + error.message);
@@ -75,6 +75,7 @@ export default function UserLevel() {
       className="min-h-screen flex items-center justify-center p-4 bg-cover bg-center"
       style={{ backgroundImage: `url(${myBackground})` }}
     >
+      {/* The Glassmorphism Card */}
       <div className="w-full max-w-2xl bg-white/30 backdrop-blur-md rounded-2xl p-8 shadow-2xl border border-white/40 text-center">
         
         <h1 className="text-3xl font-extrabold mb-2 text-[#0d3b2e]">Select Your Gardening Level</h1>
