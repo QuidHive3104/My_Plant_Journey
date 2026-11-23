@@ -1,0 +1,181 @@
+
+/* ===== MAIN PAGE ===== */
+.details-page {
+  min-height: 100vh;
+  box-sizing: border-box;
+  padding: 12px 20px 100px;
+  background-image: url('../assets/bg1.png');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  color: #064522;
+  font-family: 'Nunito Sans', sans-serif;
+}
+
+.details-container {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.details-label {
+  color: #555;
+  font-size: 13px;
+  margin: 0 0 10px;
+}
+
+/* ===== PAGE HEADING ===== */
+.details-header {
+  margin-bottom: 18px;
+}
+
+.details-header h1 {
+  font-family: 'Kalam', cursive;
+  font-size: 38px;
+  font-weight: 700;
+  margin: 0 0 8px;
+  color: #003e25;
+}
+
+.details-header p {
+  font-family: 'Kalam', cursive;
+  font-size: 19px;
+  font-weight: 700;
+  line-height: 1.5;
+  margin: 0;
+}
+
+/* ===== PLANT INFORMATION ===== */
+.plant-information {
+  display: grid;
+  grid-template-columns: 34% minmax(0, 1fr);
+  gap: 25px;
+  align-items: start;
+}
+
+.plant-photo-section {
+  text-align: center;
+}
+
+.details-plant-image {
+  display: block;
+  width: 82%;
+  max-width: 290px;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  border-radius: 15px;
+  margin: 0 auto;
+}
+
+.plant-photo-section h2 {
+  font-family: 'Kalam', cursive;
+  font-size: 25px;
+  font-weight: 700;
+  margin: 8px 0;
+}
+
+.plant-care-section h3 {
+  font-size: 16px;
+  font-weight: 800;
+  margin: 5px 0;
+}
+
+.species-name {
+  font-size: 16px;
+  font-weight: 700;
+  border-bottom: 1px solid #376b43;
+  padding-bottom: 6px;
+  margin: 0 0 15px;
+  overflow-wrap: anywhere;
+}
+
+.plant-care-section ul {
+  padding-left: 17px;
+  margin: 5px 0;
+}
+
+.plant-care-section li {
+  font-size: 15px;
+  line-height: 1.6;
+  margin-bottom: 5px;
+}
+
+/* ===== PLANT HISTORY ===== */
+.plant-history {
+  margin-top: 40px;
+}
+
+.plant-history h2 {
+  font-family: 'Kalam', cursive;
+  background: #004522;
+  color: #fff;
+  border-radius: 14px;
+  text-align: center;
+  padding: 7px;
+  margin: 0 0 16px;
+  font-size: 25px;
+  font-weight: 700;
+}
+
+.history-content {
+  padding: 0 10px;
+  color: #111;
+}
+
+.history-content h3 {
+  font-size: 14px;
+  font-weight: 800;
+  margin-bottom: 5px;
+}
+
+.history-content ul {
+  padding-left: 20px;
+  margin-top: 5px;
+}
+
+.history-content li {
+  font-size: 14px;
+  line-height: 1.5;
+  font-weight: 700;
+  margin-bottom: 3px;
+}
+
+/* ===== MOBILE RESPONSIVENESS ===== */
+@media (max-width: 480px) {
+  .details-page {
+    padding: 12px 14px 100px;
+  }
+
+  .details-header h1 {
+    font-size: 32px;
+  }
+
+  .details-header p {
+    font-size: 17px;
+  }
+
+  .plant-information {
+    grid-template-columns: 40% minmax(0, 1fr);
+    gap: 12px;
+  }
+
+  .details-plant-image {
+    width: 95%;
+  }
+
+  .plant-care-section h3 {
+    font-size: 13px;
+  }
+
+  .plant-care-section li {
+    font-size: 11px;
+    line-height: 1.5;
+  }
+
+  .plant-photo-section h2 {
+    font-size: 21px;
+  }
+
+  .plant-history {
+    margin-top: 28px;
+  }
+}

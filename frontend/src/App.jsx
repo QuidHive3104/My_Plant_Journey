@@ -3,6 +3,7 @@ import SplashScreen from './pages/SplashScreen';
 import Login from './pages/Login';
 import SignUp from './pages/SignUp';
 import UserLevel from './pages/UserLevel';
+import EGarden from './pages/EGarden'; // Make sure this matches your teammate's file name!
 import ProtectedRoute from './components/ProtectedRoute'; 
 
 function App() {
@@ -12,23 +13,12 @@ function App() {
         {/* The App now starts at the Splash Screen */}
         <Route path="/" element={<SplashScreen />} />
         
-        {/* The Login page is now at /login */}
+        {/* Auth Routes */}
         <Route path="/login" element={<Login />} />
-        
-        {/* The Sign Up page is now at /signup */}
         <Route path="/signup" element={<SignUp />} />
         
-        {/* 🚨 SECURED ROUTE: Wrap UserLevel in ProtectedRoute 🚨 */}
-        <Route 
-          path="/user-level" 
-          element={
-            <ProtectedRoute>
-              <UserLevel />
-            </ProtectedRoute>
-          } 
-        />
-        
-        {/* Note: When you add Garden and CareLog to App.jsx later, wrap them the exact same way! */}
+        {/* The User Level page stays here */}
+        <Route path="/user-level" element={<UserLevel />} />
       </Routes>
     </BrowserRouter>
   );

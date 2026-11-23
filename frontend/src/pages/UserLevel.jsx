@@ -1,53 +1,80 @@
+import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { supabase } from '../lib/supabaseClient'; 
 import myBackground from '../assets/bg1.png'; 
 
 export default function UserLevel() {
   const navigate = useNavigate();
+  const [checkingLevel, setCheckingLevel] = useState(true); 
 
+  // 1. Check if the user already has a level saved in the database
+  useEffect(() => {
+    const checkExistingLevel = async () => {
+      const { data: { user } } = await supabase.auth.getUser();
+      
+      if (user) {
+        const { data, error } = await supabase
+          .from('users')
+          .select('level')
+          .eq('id', user.id)
+          .single();
+
+        // If a level is found, skip this page and go straight to the E-Garden
+        if (data && data.level) {
+          navigate('/e-garden'); 
+          return;
+        }
+      }
+      // If no level found (new user), show the buttons
+      setCheckingLevel(false);
+    };
+
+    checkExistingLevel();
+  }, [navigate]);
+
+  // 2. Logout function
   const handleLogout = async () => {
     await supabase.auth.signOut();
     navigate('/login');
   };
 
-  // --- UPDATED: Save level to Database ---
-    const selectLevel = async (level) => {
+  // 3. Save level function
+  const selectLevel = async (level) => {
     try {
-      // 1. Get the currently logged-in user
       const { data: { user }, error: userError } = await supabase.auth.getUser();
-      
-      if (userError || !user) {
-        throw new Error("Could not find user session.");
-      }
+      if (userError || !user) throw new Error("Could not find user session.");
 
-      // 2. Save the level into the 'users' table, 'level' column
       const { error: dbError } = await supabase
-        .from('users') // <--- Your table name
+        .from('users')
         .upsert({ 
           id: user.id, 
-          level: level // <--- Jian's column name
+          level: level 
         });
 
       if (dbError) throw dbError;
 
-      // 3. Keep it in local storage (optional)
       localStorage.setItem('userLevel', level);
-      
-      // 4. Send them to the Garden page!
-      navigate('/garden');
+      navigate('/e-garden'); // Navigate to your teammate's E-Garden page
 
     } catch (error) {
       alert("Error saving level: " + error.message);
     }
   };
-  // ---------------------------------------
+
+  // 4. Show a loading screen while checking the database
+  if (checkingLevel) {
+    return (
+      <div className="min-h-screen flex items-center justify-center bg-green-50">
+        <p className="text-xl font-bold text-[#0d3b2e] animate-pulse">Loading your garden...</p>
+      </div>
+    );
+  }
 
   return (
     <div 
       className="min-h-screen flex items-center justify-center p-4 bg-cover bg-center"
       style={{ backgroundImage: `url(${myBackground})` }}
     >
-      
       {/* The Glassmorphism Card */}
       <div className="w-full max-w-2xl bg-white/30 backdrop-blur-md rounded-2xl p-8 shadow-2xl border border-white/40 text-center">
         
