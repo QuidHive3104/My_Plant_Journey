@@ -1,22 +1,11 @@
- feature/e-garden-official
-
-import { useNavigate } from 'react-router-dom';
-import myBackground from '../assets/bg1.png';
-
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { supabase } from '../lib/supabaseClient'; 
 import myBackground from '../assets/bg1.png'; 
- dev
 
 export default function UserLevel() {
   const navigate = useNavigate();
   const [checkingLevel, setCheckingLevel] = useState(true); 
-
- feature/e-garden-official
-  const selectLevel = (level) => {
-    localStorage.setItem('userLevel', level);
-    navigate('/e-garden');
 
   // 1. Check if the user already has a level saved in the database
   useEffect(() => {
@@ -30,9 +19,9 @@ export default function UserLevel() {
           .eq('id', user.id)
           .single();
 
-        // If a level is found, skip this page and go straight to the Garden
+        // If a level is found, skip this page and go straight to the E-Garden
         if (data && data.level) {
-          navigate('/garden');
+          navigate('/e-garden'); 
           return;
         }
       }
@@ -65,12 +54,11 @@ export default function UserLevel() {
       if (dbError) throw dbError;
 
       localStorage.setItem('userLevel', level);
-      navigate('/garden');
+      navigate('/e-garden'); // Navigate to your teammate's E-Garden page
 
     } catch (error) {
       alert("Error saving level: " + error.message);
     }
- dev
   };
 
   // 4. Show a loading screen while checking the database
@@ -83,41 +71,24 @@ export default function UserLevel() {
   }
 
   return (
-    <div
+    <div 
       className="min-h-screen flex items-center justify-center p-4 bg-cover bg-center"
       style={{ backgroundImage: `url(${myBackground})` }}
     >
- feature/e-garden-official
-
       {/* The Glassmorphism Card */}
-      <div className="w-full max-w-2xl bg-white/30 backdrop-blur-md rounded-2xl p-8 shadow-2xl border border-white/40 text-center">
-
-        <h1 className="text-3xl font-extrabold mb-2 text-[#0d3b2e]">
-          Select Your Gardening Level
-        </h1>
-
-        <p className="text-[#0d3b2e]/80 font-medium mb-8">
-          This helps us give you the right care tips!
-        </p>
-
-        <div className="flex flex-col md:flex-row justify-center gap-6">
-
       <div className="w-full max-w-2xl bg-white/30 backdrop-blur-md rounded-2xl p-8 shadow-2xl border border-white/40 text-center">
         
         <h1 className="text-3xl font-extrabold mb-2 text-[#0d3b2e]">Select Your Gardening Level</h1>
         <p className="text-[#0d3b2e]/80 font-medium mb-8">This helps us give you the right care tips!</p>
         
         <div className="flex flex-col md:flex-row justify-center gap-6 mb-8">
- dev
           {['BEGINNER', 'MODERATE', 'PRO'].map((level) => (
             <button
               key={level}
               onClick={() => selectLevel(level)}
               className="bg-linear-to-b from-green-200 to-green-600 w-full md:w-48 p-8 rounded-xl shadow-lg hover:shadow-2xl hover:scale-105 border-2 border-transparent hover:border-white transition-all duration-300"
             >
-              <span className="text-2xl font-bold text-[#0d3b2e]">
-                {level}
-              </span>
+              <span className="text-2xl font-bold text-[#0d3b2e]">{level}</span>
             </button>
           ))}
         </div>
