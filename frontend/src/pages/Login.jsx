@@ -1,7 +1,6 @@
+import { supabase } from '../lib/supabaseClient';
 import { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
-
-// 1. IMPORT YOUR IMAGE HERE
 import myBackground from '../assets/bg1.png'; 
 
 export default function Login() {
@@ -9,16 +8,41 @@ export default function Login() {
   const [password, setPassword] = useState('');
   const navigate = useNavigate();
 
-  const handleLogin = (e) => {
+  // Standard Email/Password Login
+  const handleLogin = async (e) => {
     e.preventDefault();
-    // Later, connect this to the backend
-    navigate('/user-level'); 
+    
+    const { data, error } = await supabase.auth.signInWithPassword({
+      email: email,
+      password: password,
+    });
+
+    if (error) {
+      alert("Login failed: " + error.message);
+    } else {
+      navigate('/user-level'); 
+    }
   };
+
+  // --- NEW: GOOGLE LOGIN FUNCTION ---
+  const handleGoogleLogin = async () => {
+    const { error } = await supabase.auth.signInWithOAuth({
+      provider: 'google',
+      options: {
+        // This tells Google where to send the user after they log in
+        redirectTo: window.location.origin + '/user-level', 
+      },
+    });
+    
+    if (error) {
+      alert('Error logging in with Google: ' + error.message);
+    }
+  };
+  // ----------------------------------
 
   return (
     <div 
       className="min-h-screen flex items-center justify-center p-4 bg-cover bg-center"
-      // 2. USE THE IMPORTED IMAGE HERE
       style={{ backgroundImage: `url(${myBackground})` }} 
     >
       {/* The Glassmorphism Card */}
@@ -59,15 +83,21 @@ export default function Login() {
 
         {/* The "Or" Divider */}
         <div className="flex items-center my-6">
-          <div className="flex-grow border-t-2 border-[#0d3b2e]/20"></div>
+          <div className="grow border-t-2 border-[#0d3b2e]/20"></div>
           <span className="px-3 text-[#0d3b2e] font-medium">Or</span>
-          <div className="flex-grow border-t-2 border-[#0d3b2e]/20"></div>
+          <div className="grow border-t-2 border-[#0d3b2e]/20"></div>
         </div>
 
         {/* Google Sign In */}
         <div className="text-center">
           <p className="text-[#0d3b2e] font-bold mb-3">Sign up with</p>
-          <button className="bg-white p-2 rounded-lg shadow-md hover:bg-gray-100 transition-colors">
+          
+          {/* UPDATED: Added onClick={handleGoogleLogin} to this button */}
+          <button 
+            onClick={handleGoogleLogin}
+            type="button" 
+            className="bg-white p-2 rounded-lg shadow-md hover:bg-gray-100 transition-colors"
+          >
             {/* Google Icon SVG */}
             <svg className="w-6 h-6" viewBox="0 0 24 24">
               <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/>

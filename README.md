@@ -1,26 +1,27 @@
-# Team-Proj
--QuidHive3104
+# My Plant Journey
 
+A smart application designed for indoor plant owners to digitally manage their indoor plants, track care routines, and diagnose plant diseases using AI.
 
-Team Members:
-- Yaaswiny Abbiramavally Thinaharan
-- Dasneem Banu Binti Haja   
-- Nureen Fatini Binti Zulkefli
-- Sarveswari A/P Vasuthevan
-- Seah Zhang Jian
+## Tech Stack
+- **Frontend:** React (Vite), Tailwind CSS, React Router
+- **Backend:** Node.js, Express.js
+- **Database:** Supabase
+- **AI/ML:** TensorFlow.js, MobileNetV2
+- **Design:** Figma
 
-## Contact
-- Email: ythinaharan@gmail.com
-- Phone Number: 012-9022588
+## Team QuidHive3104
+- **Yaaswiny Abbiramavally Thinaharan** (Project Manager & AI Integration)
+- **Sarveswari Vasuthevan** (UX Researcher & Backend)
+- **Seah Zhang Jian** (Data Architect & ML)
+- **Nureen Fatini Binti Zulkefli** (UI/UX & Frontend)
+- **Dasneem Banu Binti Haja** (Tester & Community UI)
 
-- Email: sarveswari0312@gmail.com
-- Contact Dasneem Banu: via GitHub @DasneemBanu
-- Contact Nureen Fatini: via Github @Nureen-Fatini
-
-- Email: zjseah400@gmail.com
-- Phone Number: 018-7903809 
-
-## Course: Application Development
-
-Team motto: Work smart and innovate!
-Team motto: Learn fast, move faster.
+## How to Run the Project Locally
+1. Clone the repository:
+   `git clone <YOUR-NEW-REPO-URL>`
+2. Navigate to the frontend folder:
+   `cd frontend`
+3. Install dependencies:
+   `npm install`
+4. Start the development server:
+   `npm run dev`
