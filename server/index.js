@@ -70,6 +70,23 @@ app.post('/api/care-log', async (req, res) => {
   }
 });
 
+// 404 handler for unknown API routes (KAN-87)
+app.use((req, res) => {
+  res.status(404).json({
+    success: false,
+    error: `Route ${req.originalUrl} not found`,
+  });
+});
+
+// Global error-handling middleware (KAN-87)
+app.use((err, req, res, next) => {
+  console.error('Unhandled server error:', err.stack);
+  res.status(err.status || 500).json({
+    success: false,
+    error: err.message || 'Internal Server Error',
+  });
+});
+
 app.listen(PORT, () => {
   console.log(`Server running on http://localhost:${PORT}`);
 });
