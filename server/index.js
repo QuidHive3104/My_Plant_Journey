@@ -13,7 +13,7 @@ app.use(express.json());
 app.get('/', (req, res) => {
   res.status(200).json({ message: 'Plant Doctor Backend API is running!' });
 });
-
+//KAN-80
 // GET /api/plants - Fetch all plants for the E-Garden / Dashboard
 app.get('/api/plants', async (req, res) => {
   try {
@@ -69,7 +69,7 @@ app.post('/api/care-log', async (req, res) => {
     res.status(500).json({ success: false, error: 'Internal Server Error' });
   }
 });
-
+//KAN-87
 // 404 handler for unknown API routes (KAN-87)
 app.use((req, res) => {
   res.status(404).json({
