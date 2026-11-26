@@ -28,8 +28,8 @@ function App() {
         />
         
         {/* E-Garden Routes */}
-        <Route path="/egarden" element={<EGarden />} />
-        <Route path="/egarden/:plantId" element={<GardenPlantDetails />} />
+        <Route path="/e-garden" element={<EGarden />} />
+        <Route path="/e-garden/:plantId" element={<GardenPlantDetails />} />
 
         {/* Dr. Plant Route */}
         <Route path="/dr-plant" element={<DrPlant />} />  
