@@ -2,7 +2,7 @@ const express = require('express');
 const cors = require('cors');
 require('dotenv').config();
 const supabase = require('./supabaseClient');
-
+//KAN-78
 const app = express();
 const PORT = process.env.PORT || 5000;
 
@@ -13,7 +13,7 @@ app.use(express.json());
 app.get('/', (req, res) => {
   res.status(200).json({ message: 'Plant Doctor Backend API is running!' });
 });
-
+//KAN-80
 // GET /api/plants - Fetch all plants for the E-Garden / Dashboard
 app.get('/api/plants', async (req, res) => {
   try {
@@ -68,6 +68,23 @@ app.post('/api/care-log', async (req, res) => {
     console.error('Server error in POST /api/care-log:', err.message);
     res.status(500).json({ success: false, error: 'Internal Server Error' });
   }
+});
+//KAN-87
+// 404 handler for unknown API routes (KAN-87)
+app.use((req, res) => {
+  res.status(404).json({
+    success: false,
+    error: `Route ${req.originalUrl} not found`,
+  });
+});
+
+// Global error-handling middleware (KAN-87)
+app.use((err, req, res, next) => {
+  console.error('Unhandled server error:', err.stack);
+  res.status(err.status || 500).json({
+    success: false,
+    error: err.message || 'Internal Server Error',
+  });
 });
 
 app.listen(PORT, () => {

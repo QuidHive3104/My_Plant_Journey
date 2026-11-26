@@ -21,7 +21,7 @@ export default function UserLevel() {
 
         // If a level is found, skip this page and go straight to the E-Garden
         if (data && data.level) {
-          navigate('/e-garden'); 
+          navigate('/EGarden'); 
           return;
         }
       }
@@ -54,7 +54,7 @@ export default function UserLevel() {
       if (dbError) throw dbError;
 
       localStorage.setItem('userLevel', level);
-      navigate('/e-garden'); // Navigate to your teammate's E-Garden page
+      navigate('/EGarden'); // Navigate to your teammate's E-Garden page
 
     } catch (error) {
       alert("Error saving level: " + error.message);

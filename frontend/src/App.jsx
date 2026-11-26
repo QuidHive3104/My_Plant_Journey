@@ -20,23 +20,19 @@ function App() {
         {/* Protected Routes */}
         <Route 
           path="/user-level" 
-          element={<ProtectedRoute><UserLevel /></ProtectedRoute>} 
+          element={
+            <ProtectedRoute>
+              <UserLevel />
+            </ProtectedRoute>
+          } 
         />
         
-        <Route 
-          path="/e-garden" 
-          element={<ProtectedRoute><EGarden /></ProtectedRoute>} 
-        />
-        
-        <Route 
-          path="/e-garden/:id" 
-          element={<ProtectedRoute><GardenPlantDetails /></ProtectedRoute>} 
-        />
+        {/* E-Garden Routes */}
+        <Route path="/e-garden" element={<EGarden />} />
+        <Route path="/e-garden/:plantId" element={<GardenPlantDetails />} />
 
-        <Route 
-          path="/dr-plant" 
-          element={<ProtectedRoute><DrPlant /></ProtectedRoute>} 
-        />
+        {/* Dr. Plant Route */}
+        <Route path="/dr-plant" element={<DrPlant />} />  
       </Routes>
     </BrowserRouter>
   );
