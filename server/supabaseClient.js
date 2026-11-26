@@ -1,3 +1,4 @@
+//KAN-79
 const { createClient } = require('@supabase/supabase-js');
 require('dotenv').config();
 
