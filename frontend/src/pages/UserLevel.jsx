@@ -21,7 +21,7 @@ export default function UserLevel() {
 
         // If a level is found, skip this page and go straight to the E-Garden
         if (data && data.level) {
-          navigate('/EGarden'); 
+          navigate('/e-Garden'); 
           return;
         }
       }
